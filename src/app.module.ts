@@ -8,7 +8,9 @@ import { AuthModule } from './auth/auth.module';
   imports: [
     ConfigModule.forRoot(), // importamos el modulo de configuracion
 
-    MongooseModule.forRoot(process.env.MONGO_URI), // nos conectamos a la base de datos de mongo
+    MongooseModule.forRoot(process.env.MONGO_URI, {
+      dbName: process.env.MONGO_DB_NAME,
+    }), // nos conectamos a la base de datos de mongo
 
     AuthModule, // importamos el modulo de autenticacion
   ],
